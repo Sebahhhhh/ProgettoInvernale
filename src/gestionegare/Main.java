@@ -13,8 +13,8 @@ public class Main {
         stampaLinea();
         System.out.println("║ " + titolo);
         stampaLinea();
-    }
-    //
+}
+//
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -52,7 +52,8 @@ public class Main {
             System.out.println("║  2) Visualizza gare disponib. ║");
             System.out.println("║  3) Accetta gara              ║");
             System.out.println("║  4) Visualizza storico        ║");
-            System.out.println("║  5) Esci                      ║");
+            System.out.println("║  5) Crea una gara             ║");
+            System.out.println("║  0) Esci                      ║");
             System.out.println("╚═══════════════════════════════╝");
             System.out.print("\nInserisci la tua scelta: ");
 
@@ -111,6 +112,33 @@ public class Main {
                 }
 
                 case 5 -> {
+                    stampaTitolo("CREA UNA NUOVA GARA");
+                    System.out.print("Inserisci la categoria: ");
+                    String categoria = scanner.nextLine();
+                    System.out.print("Inserisci il girone: ");
+                    String girone = scanner.nextLine();
+                    System.out.print("Inserisci la giornata (numb.): ");
+                    int giornata = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Inserisci la data (AAAA-MM-GG): ");
+                    String data = scanner.nextLine();
+                    System.out.print("Inserisci l'orario (HH:MM): ");
+                    String ora = scanner.nextLine();
+                    System.out.print("Inserisci la squadra di casa: ");
+                    String casa = scanner.nextLine();
+                    System.out.print("Inserisci la squadra ospite: ");
+                    String ospite = scanner.nextLine();
+                    System.out.print("Inserisci il ruolo (AE o OA): ");
+                    String ruolo = scanner.nextLine();
+                    System.out.print("Inserisci il campo: ");
+                    String campo = scanner.nextLine();
+
+                    Gara nuovaGara = new Gara(categoria, girone, giornata, data, ora, casa, ospite, ruolo, campo);
+                    gareDisponibili.add(nuovaGara);
+                    System.out.println("\nGara aggiunta con successo alla lista delle gare disponibili!");
+                }
+
+
+                case 0 -> {
                     stampaTitolo("Chiusura del programma");
                     // (anche se dovrebbe essere un sito e non un programma in realtà)
                     return;
